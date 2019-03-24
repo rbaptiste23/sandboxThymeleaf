@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+	crossorigin="anonymous">
+	<title>Aircraft Page</title>
+	
+</head>
+<body>
+
+  <div th:if="${not #lists.isEmpty(acftList)}">
+  <h2>Aircraft List</h2>
+  <!-- Bootstrap class=table -->
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+	    <th>Aircraft Tail Number </th>
+	    <th>Aircraft Nose Number</th>
+	    <th>Fleet Type Code</th>
+	    <th>Last Update By Employee Number </th>
+	    <th>Last Update Type Description </th>
+	 
+    </tr>
+    </thead>
+    
+    <tr th:each="craft : ${acftList}">
+     <td th:text="${craft.aircraftTailNumber}">dd</td> 
+     <td th:text="${craft.aircraftNoseNum}"></td>
+     <td th:text="${craft.fleetTypeCode}"></td>
+     <td th:text="${craft.lastUpdateByEmployeeNumber}"> </td>
+     <td th:text="${craft.lastUpdateTypeDescription}"> </td>
+     <td th:text="${craft.lastUpdateReason}"> </td>
+     
+    </tr>
+  </table>
+  </div>
+ 
+  
+    <div th:insert="~{footer :: copy}"></div>
+
+
+ 
+
+
+</body>
+</html>
