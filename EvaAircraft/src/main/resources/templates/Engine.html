@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<title>Engine Page</title>
+
+</head>
+<body>
+
+	<div th:if="${not #lists.isEmpty(engList)}">
+		<h2>EngineList</h2>
+		<!-- Bootstrap class=table -->
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Aircraft Apu Engine Alert</th>
+					<th>Apu Engine Tpr Start Threshold</th>
+					<th>Apu Engine Tpr End Threshold</th>
+					<th>Alert Level Description</th>
+					<th>Last Update By Employee Number</th>
+					<th>Last Update Date Time</th>
+
+				</tr>
+			</thead>
+
+			<tr th:each="engine : ${engList}">
+				<td th:text="${engine.acftApuEngineAlert.apuEgtTprStrtThld}"></td>
+				<td th:text="${engine.acftApuEngineAlert.fleetTypeCode}"></td>
+				<td th:text="${engine.apuEgtTprEndThld}"></td>
+				<td th:text="${engine.AlrtLvlDesc}"></td>
+				<td th:text="${engine.lstUpdtByEmpNum}"></td>
+				<td th:text="${engine.lstUpdtDttm}"></td>
+
+
+			</tr>
+
+		
+		</table>
+		
+	
+	</div>
+	
+
+
+
+	<div th:insert="~{footer :: copy}"></div>
+
+
+</body>
+</html>

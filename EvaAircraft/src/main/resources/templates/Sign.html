@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<title>Engine Page</title>
+
+</head>
+<body>
+
+	<div th:if="${not #lists.isEmpty(sgnList)}">
+		<h2>FleetList</h2>
+		<!-- Bootstrap class=table -->
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Fleet Type Code</th>
+					<th>ATA Chapter Code</th>
+				</tr>
+			</thead>
+
+			<tr th:each="slist : ${sgnList}">
+				<td th:text="${slist.fleetTypeCode}"></td>
+				<td th:text="${slist.ataChapterCode}"></td> 
+			</tr>
+
+		
+		</table>
+		
+	
+	</div>
+	
+
+
+
+	<div th:insert="~{footer :: copy}"></div>
+
+
+</body>
+</html>

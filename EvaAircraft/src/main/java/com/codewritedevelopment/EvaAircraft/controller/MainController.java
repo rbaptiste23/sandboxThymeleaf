@@ -1,5 +1,7 @@
 package com.codewritedevelopment.EvaAircraft.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,8 @@ public class MainController {
 	
 	@Autowired
 	private AcftApuEngineAlertServiceImpl acftApuEngineService;
+	
+	
 
 	@Autowired
 	private AcftSgnfctEqptServiceImpl acftSgnfctEqptService;
@@ -62,6 +66,38 @@ public class MainController {
 		modelAndView.setViewName("Aircraft");	
 		modelAndView.getModel().put("acftList", acftService.getAircraft() );			
 		System.out.println("Returning " + acftService.getAircraft().size() + " Acft to acft.jsp");						
+		return modelAndView;
+	}
+	
+	@GetMapping(path="/acftengine")
+	public ModelAndView viewAllEngineList(ModelAndView modelAndView) {		
+		modelAndView.setViewName("Engine");	
+		modelAndView.getModel().put("engList", acftApuEngineService.getAlerts() );			
+		System.out.println("Returning " + acftApuEngineService.getAlerts().size() + " Engine");
+		
+		
+		List<AcftApuEngineAlert> theList = acftApuEngineService.getAlerts();
+		
+		
+		for (AcftApuEngineAlert acftApuEngineAlert : theList) {
+			System.out.println(acftApuEngineAlert);
+			
+		}
+		
+		System.out.println(modelAndView);
+	 
+		return modelAndView;
+	}
+	
+	
+	@GetMapping(path="/acftsgnfct")
+	public ModelAndView viewAllSgnfctList(ModelAndView modelAndView) {		
+		modelAndView.setViewName("Sign");	
+		modelAndView.getModel().put("sgnList", acftSgnfctEqptService.getEqptList());			
+		System.out.println("Returning " + acftSgnfctEqptService.getEqptList().size() + " Engine");
+		
+		System.out.println(modelAndView);
+	 
 		return modelAndView;
 	}
 }

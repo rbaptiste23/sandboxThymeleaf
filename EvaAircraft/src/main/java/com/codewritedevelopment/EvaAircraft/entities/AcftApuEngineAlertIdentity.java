@@ -83,5 +83,14 @@ public class AcftApuEngineAlertIdentity implements Serializable{
 			return false;
 		return true;
 	}
+
+
+	@Override
+	public String toString() {
+		return "AcftApuEngineAlertIdentity [fleetTypeCode=" + fleetTypeCode + ", apuEgtTprStrtThld=" + apuEgtTprStrtThld
+				+ "]";
+	}
+	
+	
 	
 }

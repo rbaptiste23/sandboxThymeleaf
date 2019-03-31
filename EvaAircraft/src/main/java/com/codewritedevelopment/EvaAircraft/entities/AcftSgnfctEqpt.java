@@ -21,13 +21,15 @@ public class AcftSgnfctEqpt implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
+
+
 	@Id
 	@Column(name = "FLEET_TYPE_CDE")
 	private String fleetTypeCde;
 
 	@Id
 	@Column(name = "ATA_CHAP_CDE")
-	private String ataChapCde;
+	private String ataChapterCode;
 
  
 	
@@ -41,18 +43,25 @@ public class AcftSgnfctEqpt implements Serializable{
  
 
 	public String getAtaChapterCode() {
-		return ataChapCde;
+		return ataChapterCode;
 	}
 
 	public void setAtaChapterCode(String ataChapterCode) {
-		this.ataChapCde = ataChapterCode;
+		this.ataChapterCode = ataChapterCode;
 	}
+
+	
+	@Override
+	public String toString() {
+		return "AcftSgnfctEqpt [fleetTypeCde=" + fleetTypeCde + ", ataChapterCode=" + ataChapterCode + "]";
+	}
+
 
 	static class AcftSgnfctEqptId implements Serializable  {
 
 		private static final long serialVersionUID = 1L;
 		private String fleetTypeCde;
-		private String ataChapCde;
+		private String ataChapterCode;
 
 		public String getFleetTypeCde() {
 			return fleetTypeCde;
@@ -63,11 +72,11 @@ public class AcftSgnfctEqpt implements Serializable{
 		}
 
 		public String getAtaChapCde() {
-			return ataChapCde;
+			return ataChapterCode;
 		}
 
 		public void setAtaChapCde(String ataChapCde) {
-			this.ataChapCde = ataChapCde;
+			this.ataChapterCode = ataChapCde;
 		}
 
 	}
